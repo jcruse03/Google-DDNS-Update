@@ -1,0 +1,10 @@
+[Unit]
+Description=Google ddns updater
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /PATH-TO/ddns-update.py
+
+[Install]
+WantedBy=multi-user.target
