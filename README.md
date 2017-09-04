@@ -14,6 +14,7 @@ to Google Domains.
 ---Linux---
   
 This will start ddns-update.py at boot and run it as a daemon.
+
 1. cd into the directory where you extracted the repo.
 2. Update permissions of setup.sh.
 ```bash
@@ -24,9 +25,9 @@ $ sudo chmod 755 setup.sh
 $ sudo ./setup.sh
 ```
 4. Edit the ddns-update.conf file in /etc/ 
-  You must have a ddns synthetic record already set up on google domains. 
+  You must have at least 1 ddns synthetic record already set up on google domains. 
   Your credentials will be found in each individual record. Click the dropdown arrow then click 'view credentials'.
-  Each record should be on a single line with each element seperated by a single space.
+  Each record should be on a single line with each element seperated by a single space in the following format.
 ```bash
 subdomain.domain.com google-ddns-username google-ddns-password
 ```  
@@ -40,7 +41,8 @@ $ sudo systemctl enable ddns-update.service
 $ sudo systemctl start ddns-update.service
 ```
 
-You should now have ddns-update.py running as a daemon and it will start at boot.
+You should now have ddns-update.py running as a daemon and it will start at boot. 
+The downloaded repo and files can be deleted.
 You can check the status of the service with:
 ```bash
 $ sudo systemctl status ddns-update.service
