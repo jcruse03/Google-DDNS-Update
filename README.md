@@ -25,7 +25,7 @@ $ sudo setup.sh
 ```
 4. Edit the ddns-update.conf file in /etc/ 
   You must have a ddns synthetic record already set up on google domains. 
-  Your credentials will be found in each individual record. Click the dropdown arrow then clcik 'view credentials'.
+  Your credentials will be found in each individual record. Click the dropdown arrow then click 'view credentials'.
   Each record should be on a single line with each element seperated by a single space.
 ```bash
 subdomain.domain.com google-ddns-username google-ddns-password
