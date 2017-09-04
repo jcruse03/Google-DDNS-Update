@@ -21,7 +21,7 @@ $ sudo chmod 755 setup.sh
 ```
 3. Run setup.sh with sudo.
 ```bash
-$ sudo setup.sh
+$ sudo ./setup.sh
 ```
 4. Edit the ddns-update.conf file in /etc/ 
   You must have a ddns synthetic record already set up on google domains. 
