@@ -17,7 +17,7 @@ logging.basicConfig(format='%(asctime)s %(message)s', filename='/var/log/ddns-up
 logging.info('Starting')
 
 class Record:
-	def __init__(self, sub_domain, user, password):
+    def __init__(self, sub_domain, user, password):
 		self.sub_domain = sub_domain
 		self.user = user
 		self.password = password
