@@ -10,7 +10,7 @@ on Google Domains.
 
 This will start ddns-update.py at boot and run it as a daemon.
 
-*If updating or reinstalling follow steps 1-4. Your /etc/ddns-update.conf file will not be modified*
+*If updating or reinstalling follow steps 1-4. Your /etc/ddns-update.conf file will not be modified.*
 1. Download and extract the repo.
 2. cd into the directory where you extracted the repo.
 3. Update permissions of setup.sh.
