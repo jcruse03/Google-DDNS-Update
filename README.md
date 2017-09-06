@@ -9,6 +9,7 @@ on Google Domains.
 ---Linux---
 
 This will start ddns-update.py at boot and run it as a daemon.
+
 *If updating or reinstalling follow steps 1-4. Your /etc/ddns-update.conf file will not be modified*
 1. Download and extract the repo.
 2. cd into the directory where you extracted the repo.
@@ -20,7 +21,8 @@ $ sudo chmod 744 setup.sh
 ```bash
 $ sudo ./setup.sh
 ```
-*the downloaded repo files are no longer needed at this point and can be deleted*
+*the downloaded repo files are no longer needed at this point and can be deleted.*
+
 *If updating or reinstalling you are done*
 5. Edit the config file at /etc/ddns-update.conf
   You must have at least 1 ddns synthetic record already set up on google domains. 
