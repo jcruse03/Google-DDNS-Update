@@ -127,8 +127,6 @@ while True:
             if current_ip != dns_ip:
                 logging.info('Updating: ' + record.sub_domain +
                              ' from: ' + dns_ip + ' to: ' + current_ip)
-                if DEBUG:
-                    print('updating ' + record.get_ip() + ' to ' + get_my_ip())
                 record.update_ip(current_ip)
             else:
                 logging.info('no change on ' + record.sub_domain +
