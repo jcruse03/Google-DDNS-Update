@@ -95,10 +95,6 @@ def read_conf():
                 logging.warning('invalid entry on line ' + str(counter) +
                                 ' in /etc/ddns-update.conf. Must be 3 arguments: ' +
                                 'subdomain user password, or TICKTIME NUM ')
-                if DEBUG:
-                    print('invalid entry on line ' + str(counter) +
-                          ' in /etc/ddns-update.conf. Must be 3 arguments: ' +
-                          ' subdomain user password, or TICKTIME NUM ')
             counter += 1
         file.close()
     except OSError:
@@ -112,7 +108,7 @@ def read_conf():
 DOMAINS = read_conf()
 if DEBUG:
     DOMAINS.tick_time = 10
-    logging.info('tick_time = ' + str(DOMAINS.tick_time))
+    logging.info('DEBUG Mode, tick_time = ' + str(DOMAINS.tick_time))
 
 COUNT = 0
 
