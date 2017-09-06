@@ -42,27 +42,27 @@ class Record:
         """
         page = str(page)[1:].replace("'", '')
         if page[0:4] == 'good':
-            logging.info('Success: good response = ' + page)
+            logging.info('Success: good on ' + self.sub_domain + ' response = ' + page)
         elif page[0:5] == 'nochg':
-            logging.warning('Success: no change response = ' + page)
+            logging.warning('Success: no change on ' + self.sub_domain + ' response = ' + page)
         elif page == 'nohost':
-            logging.error(('Error: The hostname does not exist or Dynamic DNS is not ' +
-                           'enabled. RECORD DEACTIVATED. response = ' + page))
+            logging.error(('Error: The hostname ' + self.sub_domain + ' does not exist or ' +
+                           'Dynamic DNS is not enabled. RECORD DEACTIVATED. response = ' + page))
             self.active = False
         elif page == 'badauth':
-            logging.error(('Error: username / password combination is not valid for ' +
-                           'the specified host. RECORD DEACTIVATED. response = ' + page))
+            logging.error(('Error: username / password not valid for ' + self.sub_domain +
+                           '. RECORD DEACTIVATED. response = ' + page))
             self.active = False
         elif page == 'notfqdn':
-            logging.error(('Error: hostname is not a valid fully-qualified domain ' +
+            logging.error(('Error: ' + self.sub_domain + ' is not a valid fully-qualified domain ' +
                            'name. RECORD DEACTIVATED. response = ' + page))
             self.active = False
         elif page == 'badagent':
-            logging.error(('Error: Making bad requests. May be shut down for abuse. ' +
-                           'RECORD DEACTIVATED. response = ' + page))
+            logging.error(('Error: ' + self.sub_domain + ' Making bad requests. May be shut down ' +
+                           'for abuse. RECORD DEACTIVATED. response = ' + page))
             self.active = False
         elif page == 'abuse':
-            logging.error(('Error: hostname blocked due to failure to interpret ' +
+            logging.error(('Error: ' + self.sub_domain + ' blocked due to failure to interpret ' +
                            'previous responses correctly. RECORD DEACTIVATED. response = ' + page))
             self.active = False
         elif page == '911':
