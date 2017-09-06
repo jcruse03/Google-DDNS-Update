@@ -4,8 +4,10 @@ Simple Google Domains DDNS Public IP Updater
 A simple tool that keeps dynamic dns records updated
 on Google Domains.
 
--------installation---------
+-------installation--------
+
 ---Linux---
+
 This will start ddns-update.py at boot and run it as a daemon.
 *If updating or reinstalling follow steps 1-4. Your /etc/ddns-update.conf file will not be modified*
 1. Download and extract the repo.
