@@ -62,6 +62,7 @@ You can also view the log file at /var/log/ddns-update.log or using tail.
 $ tail -f /var/log/ddns-update.log
 ```
 
+
 ---Mac OSX---
 
 This will start ddns-update.py at boot and run it as a daemon.
