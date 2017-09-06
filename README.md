@@ -7,18 +7,19 @@ on Google Domains.
 -------installation---------
 ---Linux---
 This will start ddns-update.py at boot and run it as a daemon.
-*If updating or reinstalling see below.*
+*If updating or reinstalling follow steps 1-4. Your /etc/ddns-update.conf file will not be modified*
 1. Download and extract the repo.
 2. cd into the directory where you extracted the repo.
 3. Update permissions of setup.sh.
 ```bash
-$ sudo chmod 755 setup.sh
+$ sudo chmod 744 setup.sh
 ```
 4. Run setup.sh with sudo.
 ```bash
 $ sudo ./setup.sh
 ```
-(the downloaded repo files are no longer needed at this point and can be deleted)
+*the downloaded repo files are no longer needed at this point and can be deleted*
+*If updating or reinstalling you are done*
 5. Edit the config file at /etc/ddns-update.conf
   You must have at least 1 ddns synthetic record already set up on google domains. 
   Your credentials will be found in each individual record. Click the dropdown arrow then click 'view credentials'.
@@ -49,20 +50,7 @@ $ sudo systemctl stop ddns-update.service
 $ sudo systemctl start ddns-update.service
 ```
 
-You can also view the log file at /var/log/ddns-update.log
-
-------Updating/reinstalling------
-*Your config file at /etc/ddns-update.conf will not be modified*
-1. Follow steps 1-3 in the installation section.
-2. Stop the service if it is running.
+You can also view the log file at /var/log/ddns-update.log or using tail.
 ```bash
-$ sudo systemctl stop ddns-update.service
-```
-3. Run setup.sh with sudo.
-```bash
-$ sudo ./setup.sh
-```
-4. Start the service back up.
-```bash
-$ sudo systemctl start ddns-update.service
+$ tail -f /var/log/ddns-update.log
 ```
