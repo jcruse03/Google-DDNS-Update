@@ -23,7 +23,8 @@ $ sudo ./setup.sh
 ```
 *the downloaded repo files are no longer needed at this point and can be deleted.*
 
-*If updating or reinstalling you are done*
+*If updating or reinstalling you are done.*
+
 5. Edit the config file at /etc/ddns-update.conf
   You must have at least 1 ddns synthetic record already set up on google domains. 
   Your credentials will be found in each individual record. Click the dropdown arrow then click 'view credentials'.
@@ -41,8 +42,10 @@ $ sudo systemctl enable ddns-update.service
 $ sudo systemctl start ddns-update.service
 ```
 
-You should now have ddns-update.py running as a daemon and it will start at boot. 
+You should now have ddns-update.py running as a daemon and it will start at boot.
+
 The downloaded repo and files can be deleted.
+
 You can check the status of the service with:
 ```bash
 $ sudo systemctl status ddns-update.service
