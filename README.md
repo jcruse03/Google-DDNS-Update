@@ -21,7 +21,7 @@ $ sudo chmod 744 setup.sh
 ```bash
 $ sudo ./setup.sh
 ```
-*the downloaded repo files are no longer needed at this point and can be deleted.*
+*The downloaded repo files are no longer needed at this point and can be deleted.*
 
 *If updating or reinstalling you are done.*
 
@@ -51,7 +51,7 @@ You can check the status of the service with:
 $ sudo systemctl status ddns-update.service
 ```
 
-If you update /etc/ddns-update.conf after the initial setup just make sure to restart the service.
+If you edit /etc/ddns-update.conf after the initial setup just make sure to restart the service.
 ```bash
 $ sudo systemctl stop ddns-update.service
 $ sudo systemctl start ddns-update.service
