@@ -11,7 +11,7 @@ on Google Domains.
 This will start ddns-update.py at boot and run it as a daemon.
 
 *If updating or reinstalling follow steps 1-4. Your /etc/ddns-update.conf file will not be modified.*
-1. Download and extract the repo.
+1. Download and extract or clone the repo.
 2. cd into the directory where you extracted the repo.
 3. Update permissions of setup.sh.
 ```bash
@@ -68,7 +68,7 @@ $ tail -f /var/log/ddns-update.log
 This will start ddns-update.py at boot and run it as a daemon.
 
 *If updating or reinstalling follow steps 1-4 and see reloading the service at the end. Your /etc/ddns-update.conf file will not be modified.*
-1. Download and extract the repo.
+1. Download and extract or clone the repo.
 2. cd into the directory where you extracted the repo.
 3. Run mac-setup.sh with sudo.
 ```bash
