@@ -10,6 +10,8 @@ on Google Domains.
 
 This will start ddns-update.py at boot and run it as a daemon.
 
+Requires python 3
+
 *If updating or reinstalling follow steps 1-4. Your /etc/ddns-update.conf file will not be modified.*
 1. Download and extract or clone the repo.
 2. cd into the directory where you extracted the repo.
@@ -66,6 +68,8 @@ $ tail -f /var/log/ddns-update.log
 ## ---MacOS---
 
 This will start ddns-update.py at boot and run it as a daemon.
+
+Requires python 3, see http://docs.python-guide.org/en/latest/starting/install3/osx/
 
 *If updating or reinstalling follow steps 1-4 and see reloading the service at the end. Your /etc/ddns-update.conf file will not be modified.*
 1. Download and extract or clone the repo.
