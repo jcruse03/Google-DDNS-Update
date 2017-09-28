@@ -14,7 +14,7 @@ Requires python 3
 
 *If updating or reinstalling follow steps 1-4. Your /etc/ddns-update.conf file will not be modified.*
 1. Download and extract or clone the repo.
-2. cd into the directory where you extracted the repo.
+2. Open a terminal and cd into the directory where you extracted the repo.
 3. Update permissions of setup.sh.
 ```bash
 $ sudo chmod 744 setup.sh
@@ -32,7 +32,7 @@ $ sudo ./setup.sh
   Your credentials will be found in each individual record. Click the dropdown arrow then click 'view credentials'.
   Each record should be on a single line with each element seperated by a single space in the following format.
 ```bash
-subdomain.domain.com google-ddns-username google-ddns-password
+your-subdomain.your-domain.com your-google-ddns-username your-google-ddns-password
 ```  
 ```bash
 $ sudo nano /etc/ddns-update.conf
@@ -73,21 +73,21 @@ Requires python 3, see http://docs.python-guide.org/en/latest/starting/install3/
 
 *If updating or reinstalling follow steps 1-4 and see reloading the service at the end. Your /etc/ddns-update.conf file will not be modified.*
 1. Download and extract or clone the repo.
-2. cd into the directory where you extracted the repo.
+2. Open a terminal and cd into the directory where you extracted the repo.
 3. Run mac-setup.sh with sudo.
 ```bash
 $ sudo ./mac-setup.sh
 ```
 *The downloaded repo files are no longer needed at this point and can be deleted.*
 
-*If updating or reinstalling go to step 5. Your /etc/ddns-update.conf has no been modified.*
+*If updating or reinstalling go to step 5. Your /etc/ddns-update.conf has not been modified.*
 
 4. Edit the config file at /etc/ddns-update.conf
   You must have at least 1 ddns synthetic record already set up on google domains. 
   Your credentials will be found in each individual record. Click the dropdown arrow then click 'view credentials'.
   Each record should be on a single line with each element seperated by a single space in the following format.
 ```bash
-subdomain.domain.com google-ddns-username google-ddns-password
+your-subdomain.your-domain.com your-google-ddns-username your-google-ddns-password
 ```  
 ```bash
 $ sudo nano /etc/ddns-update.conf
