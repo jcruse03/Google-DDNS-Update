@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import base64
+import http.client
 import logging
 import os
 import socket
@@ -21,6 +22,8 @@ class Record:
         self.user = user
         self.password = password
         self.active = True
+        self.error_count = 0
+        self.error = False
 
     def show(self):
         """print the record"""
@@ -47,24 +50,24 @@ class Record:
             logging.warning('Success: no change on ' + self.sub_domain + ' response = ' + page)
         elif page == 'nohost':
             logging.error(('Error: The hostname ' + self.sub_domain + ' does not exist or ' +
-                           'Dynamic DNS is not enabled. RECORD DEACTIVATED. response = ' + page))
-            self.active = False
+                           'Dynamic DNS is not enabled. response = ' + page))
+            self.error = True
         elif page == 'badauth':
             logging.error(('Error: username / password not valid for ' + self.sub_domain +
-                           '. RECORD DEACTIVATED. response = ' + page))
-            self.active = False
+                           '. response = ' + page))
+            self.error = True
         elif page == 'notfqdn':
             logging.error(('Error: ' + self.sub_domain + ' is not a valid fully-qualified domain ' +
-                           'name. RECORD DEACTIVATED. response = ' + page))
-            self.active = False
+                           'name. response = ' + page))
+            self.error = True
         elif page == 'badagent':
             logging.error(('Error: ' + self.sub_domain + ' Making bad requests. May be shut down ' +
-                           'for abuse. RECORD DEACTIVATED. response = ' + page))
-            self.active = False
+                           'for abuse. response = ' + page))
+            self.error = True
         elif page == 'abuse':
             logging.error(('Error: ' + self.sub_domain + ' blocked due to failure to interpret ' +
-                           'previous responses correctly. RECORD DEACTIVATED. response = ' + page))
-            self.active = False
+                           'previous responses correctly. response = ' + page))
+            self.error = True
         elif page == '911':
             logging.error(('Error: An error happened on our end. Retry. response = ' + page))
         else:
@@ -150,6 +153,7 @@ if DEBUG:
     logging.info('DEBUG Mode, tick_time = ' + str(DOMAINS.tick_time))
 
 COUNT = 0
+ERROR_THRESHOLD = 5
 
 while True:
     for record in DOMAINS.records:
@@ -167,6 +171,19 @@ while True:
                 logging.info('Updating: ' + record.sub_domain +
                              ' from: ' + dns_ip + ' to: ' + current_ip)
                 record.update_ip(current_ip)
+                if record.error:
+                    record.error_count += 1
+                    record.error = False
+                    if record.error_count >= ERROR_THRESHOLD:
+                        logging.error('The domain ' + record.sub_domain + ' has reached the ' +
+                                      'error threshold of ' + str(ERROR_THRESHOLD) + ' and has been ' +
+                                      'deactivated. Check the log for more info.')
+                        record.active = False
+                    else:
+                        logging.warning('The domain ' + record.sub_domain + ' has reached a ' +
+                                        'consecutive error count of ' + str(record.error_count) + '.')
+                else:
+                    record.error_count = 0
             elif not record.active:
                 logging.info('Record ' + record.sub_domain + ' is inactive.')
                 inactive_records += 1
@@ -177,7 +194,13 @@ while True:
                 logging.info('no change on ' + record.sub_domain +
                              ' dns_ip = ' + dns_ip + ', current_ip= ' + current_ip)
         except urllib.error.URLError:
-            logging.error('URLError: connection may be down')
+            logging.error('URLError: connection may be down. code:')
+        except urllib.error.HTTPError as e:
+            logging.error('HTTPError, code: ' + e.code)
+        except http.client.HTTPException:
+            logging.error('HTTPException')
+        except socket.timeout:
+            logging.error('Socket error: connection timed out')
     time.sleep(DOMAINS.tick_time - time.time() % DOMAINS.tick_time)
     #truncate log file when it gets too large
     if os.stat('/var/log/ddns-update.log').st_size > 10485760:
