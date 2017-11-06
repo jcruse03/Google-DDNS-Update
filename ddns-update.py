@@ -34,8 +34,8 @@ class Record:
         try:
             return socket.gethostbyname(self.sub_domain)
         except socket.gaierror:
-            logging.error('Unknown hostname ' + self.sub_domain + ' Record Deactivated')
-            self.active = False
+            logging.error('Unknown hostname ' + self.sub_domain)
+            self.error = True
             return 'unknown_ip'
 
     def handle_response(self, page):
@@ -168,9 +168,10 @@ while True:
                 record.update_ip(socket.gethostbyname('google.com'))
                 COUNT += 1
             if record.active and current_ip != dns_ip:
-                logging.info('Updating: ' + record.sub_domain +
-                             ' from: ' + dns_ip + ' to: ' + current_ip)
-                record.update_ip(current_ip)
+                if not record.error:
+                    logging.info('Updating: ' + record.sub_domain +
+                                 ' from: ' + dns_ip + ' to: ' + current_ip)
+                    record.update_ip(current_ip)
                 if record.error:
                     record.error_count += 1
                     record.error = False
