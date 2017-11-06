@@ -4,6 +4,8 @@ Simple Google Domains DDNS Public IP Updater
 A simple tool that keeps dynamic dns records updated
 on Google Domains.
 
+Has also been tested and works on Raspbian on the Raspberry Pi. Thanks to RandLoki.
+
 ## -------Installation--------
 
 ## ---Linux---
