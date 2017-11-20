@@ -10,7 +10,7 @@ Has also been tested and works on Raspbian on the Raspberry Pi. Thanks to RandLo
 
 ## ---Linux---
 
-This will start ddns-update.py at boot and run it as a daemon.
+This will start ddns-update at boot and run it as a daemon.
 
 Requires python 3
 
@@ -46,7 +46,7 @@ $ sudo systemctl enable ddns-update.service
 $ sudo systemctl start ddns-update.service
 ```
 
-You should now have ddns-update.py running as a daemon and it will start at boot.
+You should now have ddns-update running as a daemon and it will start at boot.
 
 The downloaded repo and files can be deleted.
 
@@ -69,7 +69,7 @@ $ tail -f /var/log/ddns-update.log
 
 ## ---MacOS---
 
-This will start ddns-update.py at boot and run it as a daemon.
+This will start ddns-update at boot and run it as a daemon.
 
 Requires python 3, see http://docs.python-guide.org/en/latest/starting/install3/osx/
 
@@ -106,7 +106,7 @@ $ sudo launchctl unload /Library/LaunchDaemons/ddns-update.plist
 $ sudo launchctl load /Library/LaunchDaemons/ddns-update.plist
 ```
 
-You should now have ddns-update.py running as a daemon and it will start at boot.
+You should now have ddns-update running as a daemon and it will start at boot.
 
 The downloaded repo and files can be deleted.
 
