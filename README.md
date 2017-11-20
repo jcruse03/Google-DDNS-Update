@@ -100,7 +100,7 @@ $ sudo nano /etc/ddns-update.conf
 $ sudo launchctl load /Library/LaunchDaemons/ddns-update.plist
 ```
 
-*If you have updated, reinstalled, or edited /etc/ddns-update.conf make sure to restart the service.*
+*If you have updated or reinstalled ddns-update, or edited /etc/ddns-update.conf, make sure to restart the service.*
 ```bash
 $ sudo launchctl unload /Library/LaunchDaemons/ddns-update.plist
 $ sudo launchctl load /Library/LaunchDaemons/ddns-update.plist
