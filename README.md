@@ -100,7 +100,7 @@ $ sudo nano /etc/ddns-update.conf
 $ sudo launchctl load /Library/LaunchDaemons/ddns-update.plist
 ```
 
-*For update or reinstall restart the service.*
+*If you have updated, reinstalled, or edited /etc/ddns-update.conf make sure to restart the service.*
 ```bash
 $ sudo launchctl unload /Library/LaunchDaemons/ddns-update.plist
 $ sudo launchctl load /Library/LaunchDaemons/ddns-update.plist
@@ -109,13 +109,6 @@ $ sudo launchctl load /Library/LaunchDaemons/ddns-update.plist
 You should now have ddns-update running as a daemon and it will start at boot.
 
 The downloaded repo and files can be deleted.
-
-
-If you edit /etc/ddns-update.conf after the initial setup just make sure to restart the service.
-```bash
-$ sudo launchctl unload /Library/LaunchDaemons/ddns-update.plist
-$ sudo launchctl load /Library/LaunchDaemons/ddns-update.plist
-```
 
 You can also view the log file at /var/log/ddns-update.log or using tail.
 ```bash
