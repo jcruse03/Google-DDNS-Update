@@ -96,7 +96,7 @@ Requires python 3, openRC
 ```
 4. Run setup-rc.sh
 ```bash
-# ./setup.sh
+# ./setup-rc.sh
 ```
 *The downloaded repo files are no longer needed at this point and can be deleted.*
 
