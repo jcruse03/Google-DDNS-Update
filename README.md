@@ -5,6 +5,7 @@ A simple tool that keeps dynamic dns records updated
 on Google Domains.
 
 Has also been tested and works on Raspbian on the Raspberry Pi. Thanks to RandLoki.
+Tested and working on siaberry. Use openRC method.
 
 ## -------Installation--------
 
