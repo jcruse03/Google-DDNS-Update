@@ -99,7 +99,7 @@ Requires python 3, openRC
 ```
 *The downloaded repo files are no longer needed at this point and can be deleted.*
 
-*If updating or reinstalling see restarting the service at the end of this section.*
+*If updating or reinstalling skip to restarting the service at the end of this section.*
 
 5. Edit the config file at /etc/ddns-update.conf
   You must have at least 1 ddns synthetic record already set up on google domains. 
