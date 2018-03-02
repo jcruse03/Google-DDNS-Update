@@ -1,7 +1,7 @@
 #!/sbin/openrc-run
 depend() {
-	need net dns
-	use logger
+	need net
+	use logger dns
 }
 command="/usr/bin/ddns-update"
 command_background=true
