@@ -8,14 +8,20 @@ Has also been tested and works on Raspbian on the Raspberry Pi. Thanks to RandLo
 
 ## -------Installation--------
 
-## ---Linux---
+## ---Linux with systemd---
+
+If you do not know try this first.
+Used in Ubuntu, Raspbian, Mint, Manjaro, and Arch by default.
 
 This will start ddns-update at boot and run it as a daemon.
 
-Requires python 3
+Requires python 3, systemd
 
 *If updating or reinstalling follow steps 1-4. Your /etc/ddns-update.conf file will not be modified.*
-1. Download and extract or clone the repo.
+1. Clone the repo.
+```bash
+$ git clone https://github.com/jcruse03/Google-DDNS-Update.git
+```
 2. Open a terminal and cd into the directory where you extracted the repo.
 3. Update permissions of setup.sh.
 ```bash
@@ -65,6 +71,71 @@ You can also view the log file at /var/log/ddns-update.log or using tail.
 ```bash
 $ tail -f /var/log/ddns-update.log
 ```
+
+
+## ---Linux with openRC---
+
+Use this option for systems with openRC
+Used by gentoo and siaberry by default
+
+This will start ddns-update at boot and run it as a daemon.
+
+Requires python 3, openRC
+
+*If updating or reinstalling follow steps 1-4. Your /etc/ddns-update.conf file will not be modified.*
+*All commands expect you to be logged in as root #.*
+1. Clone the repo.
+```bash
+# git clone https://github.com/jcruse03/Google-DDNS-Update.git
+```
+2. Open a terminal and cd into /Google-DDNS-Update
+3. Update permissions of setup.sh
+```bash
+# chmod 744 setup-rc.sh
+```
+4. Run setup-rc.sh
+```bash
+# ./setup.sh
+```
+*The downloaded repo files are no longer needed at this point and can be deleted.*
+
+*If updating or reinstalling see restarting the service at the end of this section.*
+
+5. Edit the config file at /etc/ddns-update.conf
+  You must have at least 1 ddns synthetic record already set up on google domains. 
+  Your credentials will be found in each individual record. Click the dropdown arrow then click 'view credentials'.
+  Each record should be on a single line with each element seperated by a single space in the following format.
+```bash
+your-subdomain.your-domain.com your-google-ddns-username your-google-ddns-password
+```  
+```bash
+# nano /etc/ddns-update.conf
+```
+6. Start the service.
+```bash
+# rc-service ddns-update.service start
+```
+
+You should now have ddns-update running as a daemon and it will start at boot.
+
+The downloaded repo and files can be deleted.
+
+You can check the status of the service with:
+```bash
+# rc-service ddns-update.service status
+```
+### Restarting the service
+If you edit /etc/ddns-update.conf after the initial setup or have updated or reinstalled just make sure to restart the service.
+```bash
+# rc-service ddns-update.service stop
+# rc-service ddns-update.service start
+```
+
+You can also view the log file at /var/log/ddns-update.log or using tail.
+```bash
+$ tail -f /var/log/ddns-update.log
+```
+
 
 
 ## ---MacOS---
