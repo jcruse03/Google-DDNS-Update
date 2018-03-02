@@ -7,3 +7,5 @@ chmod 744 /etc/init.d/ddns-update.service
 cp -n ddns-update.conf /etc/ | echo
 rc-update add ddns-update.service boot
 echo Done!
+echo To start the service run the following command:
+echo rc-service ddns-update.service start
