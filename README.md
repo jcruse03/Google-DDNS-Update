@@ -22,7 +22,7 @@ Requires python 3, systemd
 ```bash
 $ git clone https://github.com/jcruse03/Google-DDNS-Update.git
 ```
-2. Open a terminal and cd into the directory where you extracted the repo.
+2. cd into /Google-DDNS-Update
 3. Update permissions of setup.sh.
 ```bash
 $ sudo chmod 744 setup.sh
@@ -88,7 +88,7 @@ Requires python 3, openRC
 ```bash
 # git clone https://github.com/jcruse03/Google-DDNS-Update.git
 ```
-2. Open a terminal and cd into /Google-DDNS-Update
+2. cd into /Google-DDNS-Update
 3. Update permissions of setup.sh
 ```bash
 # chmod 744 setup-rc.sh
