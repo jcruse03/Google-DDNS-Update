@@ -9,6 +9,7 @@ cp -n ddns-update.conf /etc/ | echo
 rc-update add ddns-update.service boot
 rc-service ddns-update.service start | echo
 sleep 1
+rc-service ddns-update.service stop | echo
 pid=$(cat /run/ddns-update.service.pid)
 kill $pid
 rm /run/ddns-update.service.pid
