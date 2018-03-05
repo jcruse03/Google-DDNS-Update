@@ -5,7 +5,7 @@ A simple tool that keeps dynamic dns records updated
 on Google Domains.
 
 Has also been tested and works on Raspbian on the Raspberry Pi. Thanks to RandLoki.
-Tested and working on siaberry. Use openRC method.
+Tested and working on siaberry with openRC method.
 
 ## -------Installation--------
 
@@ -76,8 +76,9 @@ $ tail -f /var/log/ddns-update.log
 
 ## ---Linux with openRC---
 
-Use this option for systems with openRC
-Used by gentoo and siaberry by default
+Use this option for systems with openRC.
+
+Used by gentoo and siaberry by default.
 
 This will start ddns-update at boot and run it as a daemon.
 
