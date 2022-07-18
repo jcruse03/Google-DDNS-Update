@@ -85,7 +85,7 @@ class Record:
 
         data = urllib.parse.urlencode(values).encode("utf-8")
         req = urllib.request.Request(url, data)
-        base64_user_pass = base64.encodestring(
+        base64_user_pass = base64.encodebytes(
             ('%s:%s' % (self.user, self.password)).encode()).decode().replace('\n', '')
         req.add_header('Authorization', 'Basic %s' % base64_user_pass)
         response = urllib.request.urlopen(req)
