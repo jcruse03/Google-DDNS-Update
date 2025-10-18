@@ -1,7 +1,13 @@
-# !! No Longer Maintained !! 
-
-
 # Google-DDNS-Update
+
+> DEPRECATED — This repository is no longer maintained.
+>
+> See DEPRECATION.md for details, alternatives, and migration steps.
+
+This project provided a script to update Google DNS records (DDNS) using Google Cloud DNS APIs. The project is now deprecated. For deprecation details and recommended migration paths, see DEPRECATION.md.
+
+<!-- NOTE: The rest of the original README content should remain unchanged below this banner. -->
+
 Simple Google Domains DDNS Public IP Updater
 
 A simple tool that keeps dynamic dns records updated
